@@ -1,7 +1,8 @@
-    import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
     import axios from 'axios';
     import './ProductList.css'; 
     import ProductFilter from '../FiltroDeBusqueda/Filtro.jsx'; 
+    import SearchBar from '../FiltroDeBusqueda/BarraDeBusqueda.jsx'; 
 
     const ProductList = () => {
         const [products, setProducts] = useState([]);
@@ -10,6 +11,7 @@
         const [categories, setCategories] = useState([]);
         const [selectedCategory, setSelectedCategory] = useState(''); 
         const [searchTerm, setSearchTerm] = useState(''); 
+        
 
         useEffect(() => {
             const fetchProducts = async () => {
@@ -28,6 +30,14 @@
 
             fetchProducts();
         }, []);
+      
+        const handleSearch = (term) => {
+            setSearchTerm(term); 
+            const filtered = products.filter(product => 
+                product.title.toLowerCase().includes(term.toLowerCase())
+            );
+            setFilteredProducts(filtered);
+        };
 
         
         const handleFilter = (term, category) => {
@@ -41,13 +51,16 @@
             setFilteredProducts(filtered);
         };
 
+
         if (loading) {
             return <p>Cargando productos...</p>;
         }
 
         return (
+          
             <div className="product-list">
                 {}
+                <SearchBar onSearch={handleSearch} searchTerm={searchTerm} />
                 <ProductFilter categories={categories} onFilter={handleFilter} />
 
                 {}
@@ -84,19 +97,19 @@
                     </div>
                 ))}
 
+
                 {}
                 {selectedCategory && (
                     <div className="category-container">
                         <h2 className="category-title">{selectedCategory}</h2>
                         <div className="category-row">
-                            {filteredProducts.map(product => (
-                                product.category === selectedCategory && (
+                        {filteredProducts.filter(product => product.category === selectedCategory).map(product =>(
                                     <div className="product-card" key={product.id}>
                                         <img src={product.thumbnail} alt={product.title} className="product-image" />
                                         <h3>{product.title}</h3> {}
                                         <p className="price">Precio: ${product.price}</p> {}
                                     </div>
-                                )
+                                
                             ))}
                         </div>
                     </div>
@@ -106,3 +119,4 @@
     };
 
     export default ProductList;
+
