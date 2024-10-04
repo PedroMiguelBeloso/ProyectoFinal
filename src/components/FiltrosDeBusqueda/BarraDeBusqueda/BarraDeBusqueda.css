@@ -1,0 +1,39 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.search-bar input {
+  flex: 1;
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff7e6;
+  transition: border-color 0.3s;
+}
+
+.search-bar input:focus {
+  border-color: #ffb300;
+  outline: none;
+}
+
+.product-filter {
+  flex: 0 0 200px;
+}
+
+.product-filter select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff7e6;
+  transition: border-color 0.3s;
+}
+
+.product-filter select:focus {
+  border-color: #ffb300;
+  outline: none;
+}

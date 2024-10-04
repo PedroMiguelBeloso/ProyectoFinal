@@ -1,34 +1,32 @@
 body {
-    margin: 0; 
-    overflow-x: hidden; 
+    margin: 0;
+    overflow-x: hidden;
 }
 
 .App {
     display: flex;
     flex-direction: column;
-    height: 100vh; 
+    height: 100vh;
 }
 
 .d-flex {
-    display: flex; 
-    flex: 1; 
+    display: flex;
+    flex: 1;
 }
 
 .sidebar {
-    width: 100px; 
-    background-color: #343a40; 
-    color: white; 
-    position: fixed; 
-    height: 100%; 
-    overflow-y: auto; 
+    width: 100px;
+    background-color: #343a40;
+    color: white;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .content {
-    flex: 1; 
-    margin-left: 100px; 
-    padding: 20px; 
-    overflow-y: auto; 
-    background-color: #add8e6; 
+    flex: 1;
+    margin-left: 100px;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #add8e6;
 }
-
-

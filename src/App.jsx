@@ -1,26 +1,39 @@
-// src/App.jsx
-import React from 'react';
-import Navbar from './shared/Navbar'; 
-import Sidebar from './components/Sidebar/Sidebar';
-import ProductList from './components/ProductList/ProductList';
-import Header from './components/Header/Header'; 
-import Footer from './components/Footer/Footer'; 
-import './App.css';
+    import React from 'react';
+    import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+    import Navbar from './shared/Navbar'; 
+    import Sidebar from './components/Sidebar/Sidebar';
+    import ProductList from './components/ProductList/ProductList';
+    import Footer from './shared/Footer/footer.jsx';
+    import Header from './shared/Header/Header.jsx';
+    import SearchResults from './components/Rutas/ResultadoBarraDeBusqueda/ResultadoBusqueda.jsx'; 
+    import CategoryProducts from './components/Rutas/ResultadoFiltroCategoria/ResultadoFiltroCategoria.jsx'; 
+    import './App.css';
 
-function App() {
-    return (
-        <div className="App">
-            <Header />
-            <Navbar />
-            <div className="d-flex">
-                <Sidebar />
-                <div className="content">
-                    <ProductList />
+    function App() {
+        return (
+            <Router> {}
+                <div className="App">
+                    <Header />
+                    <Navbar />
+                    <div className="d-flex">
+                        <Sidebar />
+                        <div className="content">
+                            <Routes>
+                                {}
+                                <Route path="/" element={<ProductList />} />
+                                
+                                {}
+                                <Route path="/search/:term" element={<SearchResults />} />
+                                
+                                {}
+                                <Route path="/category/:category" element={<CategoryProducts />} />
+                            </Routes>
+                        </div>
+                    </div>
+                    <Footer />
                 </div>
-            </div>
-            <Footer />
-        </div>
-    );
-}
+            </Router>
+        );
+    }
 
-export default App;
+    export default App;

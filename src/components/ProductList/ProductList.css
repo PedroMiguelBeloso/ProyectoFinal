@@ -30,7 +30,7 @@
     width: 160px; 
     height: 240px; 
     margin: 8px;  
-    text-align: center;
+    text-align: center; /* Alinea el texto en el centro */
     background-color: white; 
     border-radius: 8px; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
@@ -66,9 +66,13 @@ p {
     color: green; 
 }
 
-.category-row {
-    display: flex; 
-    justify-content: flex-start; 
-    flex-wrap: wrap; 
-    margin: 0 -8px; 
+.category-section {
+    margin-bottom: 1rem; /* Espacio entre secciones de categoría */
+}
+
+.category-products-container {
+    display: flex; /* Permite que los productos se alineen uno al lado del otro */
+    flex-wrap: wrap; /* Permite que los productos se ajusten a la siguiente fila si no hay suficiente espacio */
+    justify-content: flex-start; /* Alinea los productos al principio del contenedor */
+    margin: 0 -8px; /* Espaciado entre productos */
 }
