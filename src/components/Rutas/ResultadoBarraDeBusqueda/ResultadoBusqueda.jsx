@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import SearchBar from '../../FiltrosDeBusqueda/BarraDeBusqueda/BarraDeBusqueda';
+import styles from './ResultadoBusqueda.module.css'; // estoy utilizando un modulo como estilo y lo importo asi.
 
 const SearchResults = ({ categories }) => {
-    const { term } = useParams(); // Obtiene el término de búsqueda de los parámetros de la URL
+    const { term } = useParams(); 
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -22,12 +23,12 @@ const SearchResults = ({ categories }) => {
         };
 
         fetchProducts();
-    }, []); // Solo se llama una vez al montar el componente
+    }, []); 
 
     useEffect(() => {
-        // Filtrar productos cada vez que cambie el término
+        
         filterProducts(products, term);
-    }, [term, products]); // Volver a filtrar si cambian los productos o el término
+    }, [term, products]); 
 
     const filterProducts = (products, term) => {
         const filtered = products.filter(product =>
@@ -42,16 +43,16 @@ const SearchResults = ({ categories }) => {
     }
 
     return (
-        <div className="search-results">
+        <div className={styles.searchResults}>
             <SearchBar categories={categories} />
             <h2>Resultados de búsqueda para "{term}"</h2> {/* Mostrar el término actual de búsqueda */}
-            <div className="product-grid">
+            <div className={styles.productGrid}>
                 {filteredProducts.length > 0 ? (
                     filteredProducts.map(product => (
-                        <div className="product-card" key={product.id}>
-                            <img src={product.thumbnail} alt={product.title} className="product-image" />
+                        <div className={styles.productCard} key={product.id}>
+                            <img src={product.thumbnail} alt={product.title} className={styles.productImage} />
                             <h3>{product.title}</h3>
-                            <p className="price">Precio: ${product.price}</p>
+                            <p className={styles.price}>Precio: ${product.price}</p>
                         </div>
                     ))
                 ) : (
