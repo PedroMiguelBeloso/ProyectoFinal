@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import SearchBar from '../../FiltrosDeBusqueda/BarraDeBusqueda/BarraDeBusqueda';
-import styles from './ResultadoBusqueda.module.css'; // estoy utilizando un modulo como estilo y lo importo asi.
+import styles from './ResultadoBusqueda.module.css'; 
 
 const SearchResults = ({ categories }) => {
     const { term } = useParams(); 
