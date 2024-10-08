@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ProductFilter from '../FiltroDeCategoria/Filtro.jsx'; 
 import './BarraDeBusqueda.css';
 
-const SearchBar = ({ categories }) => {
+const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const navigate = useNavigate();
@@ -16,16 +16,15 @@ const SearchBar = ({ categories }) => {
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
     if (category) {
-      navigate(`/category/${category}`); // Navega a la categoría seleccionada
+      navigate(`/category/${category}`);
     } else {
-      navigate('/'); // Redirige a la página principal si no hay categoría seleccionada
+      navigate('/');
     }
   };
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && searchTerm.trim() !== '') {
-      navigate(`/search/${searchTerm}`); // Navega a la ruta de búsqueda
-      // No alteramos selectedCategory aquí para mantener su valor
+      navigate(`/search/${searchTerm}`);
     }
   };
 
@@ -41,8 +40,7 @@ const SearchBar = ({ categories }) => {
       />
       
       <ProductFilter 
-        categories={categories} // Asegúrate de que se pasan todas las categorías
-        selectedCategory={selectedCategory} // Mantiene la categoría seleccionada
+        selectedCategory={selectedCategory} 
         onFilter={handleCategoryChange} 
       />
     </div>

@@ -14,7 +14,6 @@
             <Router> {}
                 <div className="App">
                     <Header />
-                    <Navbar />
                     <div className="d-flex">
                         <Sidebar />
                         <div className="content">
