@@ -5,8 +5,8 @@
     import ProductList from './components/ProductList/ProductList';
     import Footer from './shared/Footer/footer.jsx';
     import Header from './shared/Header/Header.jsx';
-    import SearchResults from './components/Rutas/ResultadoBarraDeBusqueda/ResultadoBusqueda.jsx'; 
-    import CategoryProducts from './components/Rutas/ResultadoFiltroCategoria/ResultadoFiltroCategoria.jsx'; 
+    import SearchResults from './components/ResultadoBarraDeBusqueda/ResultadoBusqueda.jsx'; 
+    import CategoryProducts from './components/ResultadoFiltroCategoria/ResultadoFiltroCategoria.jsx'; 
     import './App.css';
 
     function App() {

@@ -7,7 +7,6 @@ import { fetchCategories, fetchProducts } from '../../services/productService';
 const ProductList = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         const loadProductsAndCategories = async () => {
@@ -15,8 +14,6 @@ const ProductList = () => {
                 const products = await fetchProducts();
                 setProducts(products);
 
-                const categories = await fetchCategories();
-                setCategories(categories);
             } catch (error) {
                 console.error('Error loading products and categories:', error);
             } finally {
@@ -52,25 +49,6 @@ const ProductList = () => {
                             </div>
                         ))}
                     </div>
-                </div>
-                
-                <div className="category-products">
-                    {categories.map(category => (
-                        <div key={category} className="category-section">
-                            <h2>{category}</h2>
-                            <div className="category-products-container">
-                                {products
-                                    .filter(product => product.category === category)
-                                    .map(product => (
-                                        <div className="product-card" key={product.id}>
-                                            <img src={product.thumbnail} alt={product.title} className="product-image" />
-                                            <h3>{truncateTitle(product.title, 20)}</h3>
-                                            <p className="price">Precio: ${product.price}</p>
-                                        </div>
-                                    ))}
-                            </div>
-                        </div>
-                    ))}
                 </div>
             </div>
         </div>

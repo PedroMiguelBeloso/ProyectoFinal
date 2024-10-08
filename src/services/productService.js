@@ -22,3 +22,13 @@ export const fetchCategories = async () => {
         throw error;
     }
 };
+
+export const fetchProductByCategory = async (category) => {
+    try {
+        const response = await axios.get(`${API_URL}/category/${category}`);
+        return response.data.products;
+    } catch (error) {
+        console.error('Error fetching products by category:', error);
+        throw error;
+    }
+};
