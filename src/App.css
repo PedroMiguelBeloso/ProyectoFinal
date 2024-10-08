@@ -14,18 +14,9 @@ body {
     flex: 1;
 }
 
-.sidebar {
-    width: 100px;
-    background-color: #343a40;
-    color: white;
-    position: fixed;
-    height: 100%;
-    overflow-y: auto;
-}
-
 .content {
     flex: 1;
-    margin-left: 100px;
+    margin-left: 0px;
     padding: 20px;
     overflow-y: auto;
     background-color: #add8e6;

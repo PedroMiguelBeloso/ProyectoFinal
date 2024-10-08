@@ -1,10 +1,8 @@
     import React from 'react';
     import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
     import Navbar from './shared/Navbar'; 
-    import Sidebar from './components/Sidebar/Sidebar';
     import ProductList from './components/ProductList/ProductList';
     import Footer from './shared/Footer/footer.jsx';
-    import Header from './shared/Header/Header.jsx';
     import SearchResults from './components/Rutas/ResultadoBarraDeBusqueda/ResultadoBusqueda.jsx'; 
     import CategoryProducts from './components/Rutas/ResultadoFiltroCategoria/ResultadoFiltroCategoria.jsx'; 
     import './App.css';
@@ -13,10 +11,10 @@
         return (
             <Router> {}
                 <div className="App">
-                    <Header />
+            
                     <Navbar />
                     <div className="d-flex">
-                        <Sidebar />
+                        
                         <div className="content">
                             <Routes>
                                 {}

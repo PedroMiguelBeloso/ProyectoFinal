@@ -1,10 +1,9 @@
-/* Estilos para la barra de navegación */
+
 .navbar {
-    background-color: #343a40; /* Fondo oscuro (color Bootstrap) */
-    padding: 1rem; /* Espaciado interior */
+    background-color: #343a40; 
+    padding: 1rem;
 }
 
-/* Estilo para el título de la barra de navegación */
 .navbar-brand {
     color: white; /* Color del texto en blanco */
     font-size: 1.5rem; /* Tamaño de la fuente */
@@ -19,3 +18,52 @@
 .navbar * {
     color: white; /* Asegurar que todos los textos dentro de la navbar sean blancos */
 }
+
+/* Animación en el título (h1) */
+h1 {
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    animation: colorChange 5s infinite; 
+    text-align: center;
+}
+
+/* Definir la animación de color */
+@keyframes colorChange {
+    0% { color: rgb(255, 255, 255); }   
+    33% { color: rgb(135, 206, 235); } 
+}
+
+/* Contenedor de los botones con flexbox */
+.navbar-buttons {
+    display: flex;
+    gap: 15px; /* Espacio entre los botones */
+}
+
+/* Estilos personalizados para los botones */
+.nav-button {
+    background-color: #f0f0f0; /* Color de fondo del botón */
+    border: none;
+    color: black; /* Color de las letras */
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease; /* Efecto de transición suave */
+}
+
+/* Efecto de luz azul al pasar el mouse */
+.nav-button:hover {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.6); /* Sombra azul */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar-buttons {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        gap: 10px; /* Reducir el espacio entre botones */
+    }
+}
+
+
