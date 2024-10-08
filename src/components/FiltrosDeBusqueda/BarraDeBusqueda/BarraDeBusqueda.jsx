@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ProductFilter from '../FiltroDeCategoria/Filtro.jsx'; 
+import FiltroPorPrecio from '../FiltroDePrecios/FiltroPorPrecio.jsx';
 import './BarraDeBusqueda.css';
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedPrice, setSelectedPrice] = useState('');
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
-    const value = e.target.value;
-    setSearchTerm(value);
+    setSearchTerm(e.target.value);
   };
 
   const handleCategoryChange = (category) => {
