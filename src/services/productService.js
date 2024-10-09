@@ -12,6 +12,8 @@ export const fetchProducts = async () => {
     }
 };
 
+
+
 export const fetchCategories = async () => {
     try {
         const response = await axios.get(`${API_URL}/categories`);
@@ -29,6 +31,19 @@ export const fetchProductByCategory = async (category) => {
         return response.data.products;
     } catch (error) {
         console.error('Error fetching products by category:', error);
+        throw error;
+    }
+};
+
+
+export const fetchProductsByPrice = async (maxPrice) => {
+    try {
+        const response = await axios.get(API_URL);
+        const products = response.data.products;
+        const filteredProducts = products.filter(product => product.price <= maxPrice);
+        return filteredProducts;
+    } catch (error) {
+        console.error('Error fetching products by price:', error);
         throw error;
     }
 };
