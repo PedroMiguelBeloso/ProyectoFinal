@@ -30,21 +30,21 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="search-bar text-center">
+    <div className="search-bar-container">
       <input
         type="text"
-        className="form-control"
+        className="search-input"
         placeholder="Buscar productos..."
         value={searchTerm}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
       />
-      
+    
       <ProductFilter 
         selectedCategory={selectedCategory} 
         onFilter={handleCategoryChange} 
       />
-    </div>
+  </div>
   );
 };
 

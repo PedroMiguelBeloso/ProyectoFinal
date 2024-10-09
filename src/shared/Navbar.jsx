@@ -1,18 +1,20 @@
-        import React from 'react';
-        import './Navbar.css'; 
+import React from 'react';
+import './Navbar.css';
 
-        const Navbar = () => {
-            return (
-                <nav className="navbar navbar-expand-lg">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="/">PNT2</a>
-                    <div className="navbar-buttons">
-                        <button className="nav-button">Inicio</button>
-                        <button className="nav-button">Ofertas</button>
-                    </div>
+const Navbar = () => {
+    return (
+        <nav className="navbar">
+            <div className="container">
+                <div className="navbar-brand">Nombre</div>
+                <div className="navbar-links">
+                    <a href="#home" className="nav-link">Inicio</a>
+                    <a href="#products" className="nav-link">Productos</a>
+                    <a href="#about" className="nav-link">Sobre Nosotros</a>
+                    <a href="#contact" className="nav-link">Contacto</a>
                 </div>
-            </nav>
-        );
-    };
-    
-    export default Navbar;
+            </div>
+        </nav>
+    );
+};
+
+export default Navbar;
