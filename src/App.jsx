@@ -17,13 +17,13 @@
                         
                         <div className="content">
                             <Routes>
-                                {}
+                                
                                 <Route path="/" element={<ProductList />} />
                                 
-                                {}
+                                
                                 <Route path="/search/:term" element={<SearchResults />} />
                                 
-                                {}
+                                
                                 <Route path="/category/:category" element={<CategoryProducts />} />
                             </Routes>
                         </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { fetchProductByCategory } from '../../services/productService';
 
 
 const CategoryProducts = () => {
@@ -9,10 +10,9 @@ const CategoryProducts = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchCategoryProducts = async () => {
+        const loadCategoryProducts = async () => {
             try {
-                const response = await axios.get('https://dummyjson.com/products');
-                const filteredProducts = response.data.products.filter(product => product.category === category);
+                const filteredProducts = await fetchProductByCategory(category);
                 setProducts(filteredProducts);
             } catch (error) {
                 console.error('Error fetching products by category:', error);
@@ -21,7 +21,9 @@ const CategoryProducts = () => {
             }
         };
 
-        fetchCategoryProducts();
+        if (category) {
+            loadCategoryProducts();
+        }
     }, [category]);
 
     if (loading) {
