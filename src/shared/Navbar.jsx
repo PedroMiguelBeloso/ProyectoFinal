@@ -1,14 +1,20 @@
-        import React from 'react';
-        import './Navbar.css'; // Asegúrate de importar el CSS
+import React from 'react';
+import './Navbar.css';
 
-        const Navbar = () => {
-            return (
-                <nav className="navbar">
-                    <div className="container-fluid justify-content-end">
-                        <span className="navbar-brand mb-0 h1">Nombre</span>
-                    </div>
-                </nav>
-            );
-        };
+const Navbar = () => {
+    return (
+        <nav className="navbar">
+            <div className="container">
+                <div className="navbar-brand">Nombre</div>
+                <div className="navbar-links">
+                    <a href="#home" className="nav-link">Inicio</a>
+                    <a href="#products" className="nav-link">Productos</a>
+                    <a href="#about" className="nav-link">Sobre Nosotros</a>
+                    <a href="#contact" className="nav-link">Contacto</a>
+                </div>
+            </div>
+        </nav>
+    );
+};
 
-        export default Navbar;
+export default Navbar;

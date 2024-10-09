@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchCategories } from '../../../services/productService';
-
+import './Filtro.css';
 const ProductFilter = ({ selectedCategory, onFilter }) => {
     const navigate = useNavigate(); 
     const [categories, setCategories] = useState([]);
@@ -28,12 +28,16 @@ const ProductFilter = ({ selectedCategory, onFilter }) => {
 
     return (
         <div className="product-filter">
-            <select value={selectedCategory} onChange={handleCategoryChange}>
+            <select 
+                className="custom-select" 
+                value={selectedCategory} 
+                onChange={handleCategoryChange}
+            >
                 <option value="">Todas las categorías</option>
                 {Array.isArray(categories) && categories.map((category) => (
-                    <option key={category} value={category}>
-                        {category}
-                    </option>
+                <option key={category} value={category}>
+                    {category}
+                </option>
                 ))}
             </select>
         </div>

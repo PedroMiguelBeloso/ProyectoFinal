@@ -1,21 +1,65 @@
-/* Estilos para la barra de navegación */
 .navbar {
-    background-color: #343a40; /* Fondo oscuro (color Bootstrap) */
-    padding: 1rem; /* Espaciado interior */
+    background: rgba(44, 62, 80, 0.9); /* Fondo oscuro con un toque de transparencia */
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle un efecto flotante */
+    position: fixed; /* Para que esté siempre visible en la parte superior */
+    width: 100%;
+    z-index: 1000; /* Asegura que la navbar esté por encima de otros elementos */
 }
 
-/* Estilo para el título de la barra de navegación */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .navbar-brand {
-    color: white; /* Color del texto en blanco */
-    font-size: 1.5rem; /* Tamaño de la fuente */
+    color: #ecf0f1!important; /* Color del texto claro */
+    font-size: 1.8rem; /* Ajuste de tamaño */
+    font-weight: bold; /* Negrita para resaltar */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    transition: color 0.3s ease;
 }
 
-/* Cambiar color de texto al pasar el mouse */
 .navbar-brand:hover {
-    color: #ffffff; /* Mantener el texto blanco al pasar el mouse */
+    color: #3498db; /* Azul claro al pasar el mouse */
 }
 
-/* Estilo para cualquier otro texto en la barra de navegación */
-.navbar * {
-    color: white; /* Asegurar que todos los textos dentro de la navbar sean blancos */
+.navbar-links {
+    display: flex;
+    gap: 20px; /* Espacio entre los enlaces */
+}
+
+.nav-link {
+    color: #ecf0f1!important; /* Texto claro */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.nav-link:hover {
+    background-color: #3498db; /* Fondo azul claro al pasar el mouse */
+    color: #ffffff; /* Texto blanco al pasar el mouse */
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none; /* Ocultar los enlaces en dispositivos móviles */
+    }
+
+    .navbar.active .navbar-links {
+        display: flex;
+        flex-direction: column;
+        background: rgba(44, 62, 80, 0.95);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 10px 20px;
+    }
 }
