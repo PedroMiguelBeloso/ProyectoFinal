@@ -7,7 +7,7 @@ import { fetchCategories, fetchProducts } from '../../services/productService';
 const ProductList = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    
     useEffect(() => {
         const loadProductsAndCategories = async () => {
             try {
@@ -30,6 +30,16 @@ const ProductList = () => {
         return title;
     };
 
+    // Agrupar productos por categoría
+    const productsByCategory = products.reduce((acc, product) => {
+        const category = product.category || 'Sin categoría'; // Asumimos que hay una propiedad 'category'
+        if (!acc[category]) {
+            acc[category] = [];
+        }
+        acc[category].push(product);
+        return acc;
+    }, {});
+
     if (loading) {
         return <p>Cargando productos...</p>;
     }
@@ -51,6 +61,24 @@ const ProductList = () => {
                         ))}
                     </div>
                 </div>
+                
+                {/* Mostrar productos por categoría */}
+                {Object.entries(productsByCategory).map(([category, categoryProducts]) => (
+                    <div key={category} className="category-section">
+                        <h2>{category}</h2>
+                        <div className="category-products">
+                            {categoryProducts.map(product => (
+                                <div className="product-card" key={product.id}>
+                                    <Link to={`/product/${product.id}`}>
+                                        <img src={product.thumbnail} alt={product.title} className="product-image" />
+                                        <h3>{truncateTitle(product.title, 20)}</h3>
+                                        <p className="price">Precio: ${product.price}</p>
+                                    </Link>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );
