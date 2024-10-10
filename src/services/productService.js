@@ -47,3 +47,12 @@ export const fetchProductsByPrice = async (maxPrice) => {
         throw error;
     }
 };
+export const fetchProductById = async (id) => {
+    try {
+        const response = await axios.get(`${API_URL}/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching product by ID:', error);
+        throw error;
+    }
+};

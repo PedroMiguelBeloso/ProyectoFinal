@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 import SearchBar from '../FiltrosDeBusqueda/BarraDeBusqueda/BarraDeBusqueda';
 import styles from './ResultadoBusqueda.module.css'; 
@@ -10,6 +10,7 @@ const SearchResults = ({ categories }) => {
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [maxPrice, setMaxPrice] = useState(Infinity); 
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -44,6 +45,11 @@ const SearchResults = ({ categories }) => {
         setMaxPrice(price); 
     };
 
+    
+    const handleProductClick = (productId) => {
+        navigate(`/product/${productId}`); // Redirige a la página de detalles del producto
+    };
+
     if (loading) {
         return <p>Cargando productos...</p>;
     }
@@ -51,9 +57,8 @@ const SearchResults = ({ categories }) => {
     return (
         <div className={styles.searchResults}>
             <SearchBar categories={categories} />
-            <h2>Resultados de búsqueda para "{term}"</h2> {}
+            <h2>Resultados de búsqueda para "{term}"</h2>
             
-            {}
             <div className={styles.priceFilter}>
                 <label>
                     Filtrar por precio máximo deseado: 
@@ -68,7 +73,11 @@ const SearchResults = ({ categories }) => {
             <div className={styles.productGrid}>
                 {filteredProducts.length > 0 ? (
                     filteredProducts.map(product => (
-                        <div className={styles.productCard} key={product.id}>
+                        <div 
+                            className={styles.productCard} 
+                            key={product.id}
+                            onClick={() => handleProductClick(product.id)} 
+                        >
                             <img src={product.thumbnail} alt={product.title} className={styles.productImage} />
                             <h3>{product.title}</h3>
                             <p className={styles.price}>Precio: ${product.price}</p>
