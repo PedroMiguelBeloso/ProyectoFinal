@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { fetchProductsByPrice } from '../../../services/productService.js'; 
+import './FiltroPorPrecio.css'; // Asegúrate de que tu archivo CSS esté vinculado correctamente
 
 const FiltroPorPrecio = () => {
     const [maxPrice, setMaxPrice] = useState(100); 
@@ -45,4 +46,4 @@ const FiltroPorPrecio = () => {
     );
 };
 
-export default FiltroPorPrecio;
+export default FiltroPorPrecio; 

@@ -1,0 +1,18 @@
+/* Ocultar flechas del input tipo número en todos los navegadores */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Para Chrome y Safari */
+    margin: 0; /* Para eliminar márgenes */
+}
+
+input[type=number] {
+    -moz-appearance: textfield; /* Para Firefox */
+    outline: none; /* Quitar el contorno azul predeterminado */
+}
+
+/* Estilo para eliminar el fondo resaltado en focus */
+input[type=number]:focus {
+    outline: none; /* Elimina el contorno al enfocar */
+    background-color: transparent; /* Cambia el fondo a transparente */
+    border: 1px solid #ccc; /* Establece un borde personalizado (puedes ajustar el color) */
+}
