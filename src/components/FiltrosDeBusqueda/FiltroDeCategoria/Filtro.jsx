@@ -6,34 +6,34 @@ import './Filtro.css';
 const ProductFilter = ({ selectedCategory, onFilter }) => {
     const navigate = useNavigate(); 
     const [categories, setCategories] = useState([]);
-    const [loading, setLoading] = useState(true); // Asegúrate de tener esto definido
+    const [loading, setLoading] = useState(true); 
 
-    // Función para manejar el cambio de categoría
+    
     const handleCategoryChange = (e) => {
         const category = e.target.value;
         onFilter(category); 
     };
 
-    // Efecto para cargar categorías
+
     useEffect(() => {
         const loadProductsAndCategories = async () => {
             try {
-                setLoading(true); // Inicia el loading antes de cargar los datos
-                const categoriesData = await fetchCategories(); // Cambié el nombre de la variable para evitar confusiones
+                setLoading(true); 
+                const categoriesData = await fetchCategories(); 
                 setCategories(categoriesData);
             } catch (error) {
                 console.error('Error loading products and categories:', error);
             } finally {
-                setLoading(false); // Finaliza el loading
+                setLoading(false); 
             }
         };
 
-        loadProductsAndCategories(); // Llama a la función
-    }, []); // Dependencias vacías para ejecutar solo una vez al montar el componente
+        loadProductsAndCategories(); 
+    }, []); 
 
     return (
         <div className="product-filter">
-            {loading ? ( // Muestra un mensaje mientras se carga
+            {loading ? ( 
                 <p>Cargando categorías...</p>
             ) : (
                 <select 
