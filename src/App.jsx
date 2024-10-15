@@ -5,7 +5,7 @@ import ProductList from './components/ProductList/ProductList';
 import SearchResults from './components/ResultadoBarraDeBusqueda/ResultadoBusqueda.jsx'; 
 import CategoryProducts from './components/ResultadoFiltroCategoria/ResultadoFiltroCategoria.jsx'; 
 import ProductDetail from './components/ResultadoDetalleDelProducto/Detalle.jsx'; 
-import Footer from './shared/Footer/footer.jsx'; // Asegúrate de que esta ruta sea correcta
+import Footer from './shared/Footer/footer.jsx'; 
 import './App.css';
 
 function App() {
