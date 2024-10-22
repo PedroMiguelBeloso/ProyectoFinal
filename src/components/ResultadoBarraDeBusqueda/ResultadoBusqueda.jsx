@@ -45,26 +45,25 @@ const SearchResults = ({ categories }) => {
         setMaxPrice(price); 
     };
 
-    
     const handleProductClick = (productId) => {
-        navigate(`/product/${productId}`); // Redirige a la página de detalles del producto
+        navigate(`/product/${productId}`); 
     };
 
     if (loading) {
-        return <p>Cargando productos...</p>;
+        return <p>Loading products...</p>;
     }
 
     return (
         <div className={styles.searchResults}>
             <SearchBar categories={categories} />
-            <h2>Resultados de búsqueda para "{term}"</h2>
+            <h2>Search results for "{term}"</h2>
             
             <div className={styles.priceFilter}>
                 <label>
-                    Filtrar por precio máximo deseado: 
+                    Filter by desired maximum price: 
                     <input 
                         type="number" 
-                        placeholder="Ingrese precio máximo" 
+                        placeholder="Enter maximum price" 
                         onChange={handlePriceChange} 
                     />
                 </label>
@@ -80,11 +79,11 @@ const SearchResults = ({ categories }) => {
                         >
                             <img src={product.thumbnail} alt={product.title} className={styles.productImage} />
                             <h3>{product.title}</h3>
-                            <p className={styles.price}>Precio: ${product.price}</p>
+                            <p className={styles.price}>Price: ${product.price}</p>
                         </div>
                     ))
                 ) : (
-                    <p>No se encontraron productos.</p>
+                    <p>No products found.</p>
                 )}
             </div>
         </div>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom'; // Importar useNavigate
+import { useParams, useNavigate } from 'react-router-dom'; 
 import { fetchProductByCategory } from '../../services/productService';
 import styles from './ResultadoBusqueda.module.css'; 
 import SearchBar from '../FiltrosDeBusqueda/BarraDeBusqueda/BarraDeBusqueda.jsx'; 
@@ -11,7 +10,7 @@ const CategoryProducts = () => {
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [maxPrice, setMaxPrice] = useState(Infinity); 
-    const navigate = useNavigate(); // Hook para redirigir a otra ruta
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         const loadCategoryProducts = async () => {
@@ -44,27 +43,26 @@ const CategoryProducts = () => {
         setMaxPrice(price); 
     };
 
-    // Método para manejar el clic en un producto
     const handleProductClick = (productId) => {
-        navigate(`/product/${productId}`); // Redirige a la página de detalles del producto
+        navigate(`/product/${productId}`);
     };
 
     if (loading) {
-        return <p>Cargando productos de la categoría...</p>;
+        return <p>Loading category products...</p>;
     }
 
     return (
         <div className={styles.categoryProducts}>
-            <h2>Productos en la categoría: {category}</h2>
+            <h2>Products in category: {category}</h2>
             
             <SearchBar />
 
             <div className={styles.priceFilter}>
                 <label>
-                    Filtrar por precio máximo: 
+                    Filter by maximum price: 
                     <input 
                         type="number" 
-                        placeholder="Ingrese precio máximo" 
+                        placeholder="Enter maximum price" 
                         onChange={handlePriceChange} 
                     />
                 </label>
@@ -76,15 +74,15 @@ const CategoryProducts = () => {
                         <div 
                             className={styles.productCard} 
                             key={product.id}
-                            onClick={() => handleProductClick(product.id)} // Agregar evento onClick
+                            onClick={() => handleProductClick(product.id)}
                         >
                             <img src={product.thumbnail} alt={product.title} className={styles.productImage} />
                             <h3>{product.title}</h3>
-                            <p className={styles.price}>Precio: ${product.price}</p>
+                            <p className={styles.price}>Price: ${product.price}</p>
                         </div>
                     ))
                 ) : (
-                    <p>No se encontraron productos.</p>
+                    <p>No products found.</p>
                 )}
             </div>
         </div>

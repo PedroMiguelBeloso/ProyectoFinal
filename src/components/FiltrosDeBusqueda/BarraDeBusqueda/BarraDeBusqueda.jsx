@@ -34,7 +34,7 @@ const SearchBar = () => {
       <input
         type="text"
         className="search-input"
-        placeholder="Buscar productos..."
+        placeholder="Enter the name of a product or its category here and press enter.."
         value={searchTerm}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
@@ -44,7 +44,7 @@ const SearchBar = () => {
         selectedCategory={selectedCategory} 
         onFilter={handleCategoryChange} 
       />
-  </div>
+    </div>
   );
 };
 
