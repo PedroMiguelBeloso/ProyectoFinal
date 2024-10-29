@@ -1,10 +1,10 @@
 .navbar {
-    background: rgba(44, 62, 80, 0.9); /* Fondo oscuro con un toque de transparencia */
+    background: rgba(44, 62, 80, 0.9); 
     padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle un efecto flotante */
-    position: fixed; /* Para que esté siempre visible en la parte superior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
     width: 100%;
-    z-index: 1000; /* Asegura que la navbar esté por encima de otros elementos */
+    z-index: 1000;
 }
 
 .container {
@@ -16,43 +16,69 @@
 }
 
 .navbar-brand {
-    color: #ecf0f1!important; /* Color del texto claro */
-    font-size: 1.8rem; /* Ajuste de tamaño */
-    font-weight: bold; /* Negrita para resaltar */
-    text-transform: uppercase; /* Texto en mayúsculas */
-    letter-spacing: 1px; /* Espaciado entre letras */
+    color: #ecf0f1 !important;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: color 0.3s ease;
 }
 
 .navbar-brand:hover {
-    color: #3498db; /* Azul claro al pasar el mouse */
+    color: #3498db;
 }
 
 .navbar-links {
     display: flex;
-    gap: 20px; /* Espacio entre los enlaces */
+    gap: 20px;
 }
 
 .nav-link {
-    color: #ecf0f1!important; /* Texto claro */
-    text-decoration: none; /* Sin subrayado */
+    color: #ecf0f1 !important;
+    text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;
     padding: 8px 12px;
     border-radius: 5px;
 }
 
-.nav-link:hover {
-    background-color: #3498db; /* Fondo azul claro al pasar el mouse */
-    color: #ffffff; /* Texto blanco al pasar el mouse */
+.nav-link.active {
+    font-weight: bold;
+    color: #ff6347;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.bar.open:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.bar.open:nth-child(2) {
+    opacity: 0;
+}
+
+.bar.open:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 @media (max-width: 768px) {
     .navbar-links {
-        display: none; /* Ocultar los enlaces en dispositivos móviles */
+        display: none;
     }
 
-    .navbar.active .navbar-links {
+    .navbar-links.active {
         display: flex;
         flex-direction: column;
         background: rgba(44, 62, 80, 0.95);
@@ -61,5 +87,9 @@
         left: 0;
         width: 100%;
         padding: 10px 20px;
+    }
+
+    .hamburger {
+        display: flex;
     }
 }

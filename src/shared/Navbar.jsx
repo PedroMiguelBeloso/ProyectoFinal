@@ -1,17 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; 
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom'; 
 import './Navbar.css';
 
 const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <nav className="navbar">
             <div className="container">
                 <div className="navbar-brand">The Market Trail</div>
-                <div className="navbar-links">
-                    <Link to="/" className="nav-link">Start</Link>  {/* "/" te lleva a la ruta raiz*/}
-                    <Link to="/" className="nav-link">Products</Link> 
-                    <a href="#about" className="nav-link">About us</a>
-                    <a href="#contact" className="nav-link">Contact</a>
+                <div className="hamburger" onClick={toggleMenu}>
+                    <span className={`bar ${isOpen ? 'open' : ''}`}></span>
+                    <span className={`bar ${isOpen ? 'open' : ''}`}></span>
+                    <span className={`bar ${isOpen ? 'open' : ''}`}></span>
+                </div>
+                <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
+                    <NavLink to="/" exact className="nav-link" activeClassName="active">
+                        Home
+                    </NavLink>
+                    <NavLink to="/about" className="nav-link" activeClassName="active">
+                        About us
+                    </NavLink>
+                    <NavLink to="/contact" className="nav-link" activeClassName="active">
+                        Contact
+                    </NavLink>
                 </div>
             </div>
         </nav>
