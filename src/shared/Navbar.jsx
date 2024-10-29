@@ -8,9 +8,9 @@ const Navbar = () => {
             <div className="container">
                 <div className="navbar-brand">The Market Trail</div>
                 <div className="navbar-links">
-                    <Link to="/" className="nav-link">Start</Link>  {/* "/" te lleva a la ruta raiz*/}
+                    <Link to="/" className="nav-link">Start</Link>  
                     <Link to="/" className="nav-link">Products</Link> 
-                    <a href="#about" className="nav-link">About us</a>
+                    <Link to="/about" className="nav-link">About Us</Link> 
                     <a href="#contact" className="nav-link">Contact</a>
                 </div>
             </div>
