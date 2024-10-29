@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'; // Importar Link para navegación
+import { Link } from 'react-router-dom'; 
 import SearchBar from '../FiltrosDeBusqueda/BarraDeBusqueda/BarraDeBusqueda'; 
 import './ProductList.css'; 
 import { fetchCategories, fetchProducts } from '../../services/productService';
@@ -30,9 +30,8 @@ const ProductList = () => {
         return title;
     };
 
-    // Agrupar productos por categoría
     const productsByCategory = products.reduce((acc, product) => {
-        const category = product.category || 'Sin categoría'; // Asumimos que hay una propiedad 'category'
+        const category = product.category || 'Without category';
         if (!acc[category]) {
             acc[category] = [];
         }
@@ -41,7 +40,7 @@ const ProductList = () => {
     }, {});
 
     if (loading) {
-        return <p>Cargando productos...</p>;
+        return <p>Loading products...</p>;
     }
 
     return (
@@ -52,17 +51,16 @@ const ProductList = () => {
                     <div className="carousel-track">
                         {products.map(product => (
                             <div className="product-card" key={product.id}>
-                                <Link to={`/product/${product.id}`}> {/* Enlace a la página de detalles */}
+                                <Link to={`/product/${product.id}`}>
                                     <img src={product.thumbnail} alt={product.title} className="product-image" />
                                     <h3>{truncateTitle(product.title, 20)}</h3>
-                                    <p className="price">Precio: ${product.price}</p>
+                                    <p className="price">Price: ${product.price}</p>
                                 </Link>
                             </div>
                         ))}
                     </div>
                 </div>
                 
-                {/* Mostrar productos por categoría */}
                 {Object.entries(productsByCategory).map(([category, categoryProducts]) => (
                     <div key={category} className="category-section">
                         <h2>{category}</h2>
@@ -72,7 +70,7 @@ const ProductList = () => {
                                     <Link to={`/product/${product.id}`}>
                                         <img src={product.thumbnail} alt={product.title} className="product-image" />
                                         <h3>{truncateTitle(product.title, 20)}</h3>
-                                        <p className="price">Precio: ${product.price}</p>
+                                        <p className="price">Price: ${product.price}</p>
                                     </Link>
                                 </div>
                             ))}

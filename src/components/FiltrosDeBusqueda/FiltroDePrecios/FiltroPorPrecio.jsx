@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { fetchProductsByPrice } from '../../../services/productService.js'; 
-import './FiltroPorPrecio.css'; // Asegúrate de que tu archivo CSS esté vinculado correctamente
+import './FiltroPorPrecio.css'; 
 
 const FiltroPorPrecio = () => {
     const [maxPrice, setMaxPrice] = useState(100); 
@@ -21,19 +21,19 @@ const FiltroPorPrecio = () => {
 
     return (
         <div>
-            <h2>Filtrar productos por precio deseado</h2>
+            <h2>Filter products by desired price</h2>
             <label>
-                Precio máximo:
+                Maximum price:
                 <input 
                     type="number" 
                     value={maxPrice} 
                     onChange={handlePriceChange} 
                 />
             </label>
-            <button onClick={handleSearch}>Buscar</button>
+            <button onClick={handleSearch}>Search</button>
 
             <div>
-                <h3>Productos filtrados:</h3>
+                <h3>Filtered products:</h3>
                 <ul>
                     {products.map(product => (
                         <li key={product.id}>
@@ -46,4 +46,4 @@ const FiltroPorPrecio = () => {
     );
 };
 
-export default FiltroPorPrecio; 
+export default FiltroPorPrecio;

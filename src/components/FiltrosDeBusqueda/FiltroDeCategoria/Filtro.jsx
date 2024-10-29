@@ -8,12 +8,10 @@ const ProductFilter = ({ selectedCategory, onFilter }) => {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true); 
 
-    
     const handleCategoryChange = (e) => {
         const category = e.target.value;
         onFilter(category); 
     };
-
 
     useEffect(() => {
         const loadProductsAndCategories = async () => {
@@ -34,14 +32,14 @@ const ProductFilter = ({ selectedCategory, onFilter }) => {
     return (
         <div className="product-filter">
             {loading ? ( 
-                <p>Cargando categorías...</p>
+                <p>Loading categories...</p>
             ) : (
                 <select 
                     className="custom-select" 
                     value={selectedCategory} 
                     onChange={handleCategoryChange}
                 >
-                    <option value="">Todas las categorías</option>
+                    <option value="">All categories</option>
                     {Array.isArray(categories) && categories.map((category) => (
                         <option key={category} value={category}>
                             {category}
