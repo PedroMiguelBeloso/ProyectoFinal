@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 import SearchBar from '../FiltrosDeBusqueda/BarraDeBusqueda/BarraDeBusqueda';
 import styles from './ResultadoBusqueda.module.css'; 
@@ -9,6 +9,8 @@ const SearchResults = ({ categories }) => {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [maxPrice, setMaxPrice] = useState(Infinity); 
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -26,16 +28,26 @@ const SearchResults = ({ categories }) => {
     }, []); 
 
     useEffect(() => {
-        
         filterProducts(products, term);
-    }, [term, products]); 
+    }, [term, products, maxPrice]); 
 
     const filterProducts = (products, term) => {
         const filtered = products.filter(product =>
-            product.title.toLowerCase().includes(term.toLowerCase()) ||
-            product.category.toLowerCase() === term.toLowerCase()
+            (product.title.toLowerCase().includes(term.toLowerCase()) ||
+            product.category.toLowerCase() === term.toLowerCase()) &&
+            product.price <= maxPrice 
         );
         setFilteredProducts(filtered);
+    };
+
+    const handlePriceChange = (e) => {
+        const price = e.target.value ? parseFloat(e.target.value) : Infinity;
+        setMaxPrice(price); 
+    };
+
+    
+    const handleProductClick = (productId) => {
+        navigate(`/product/${productId}`); // Redirige a la página de detalles del producto
     };
 
     if (loading) {
@@ -45,11 +57,27 @@ const SearchResults = ({ categories }) => {
     return (
         <div className={styles.searchResults}>
             <SearchBar categories={categories} />
-            <h2>Resultados de búsqueda para "{term}"</h2> {/* Mostrar el término actual de búsqueda */}
+            <h2>Resultados de búsqueda para "{term}"</h2>
+            
+            <div className={styles.priceFilter}>
+                <label>
+                    Filtrar por precio máximo deseado: 
+                    <input 
+                        type="number" 
+                        placeholder="Ingrese precio máximo" 
+                        onChange={handlePriceChange} 
+                    />
+                </label>
+            </div>
+
             <div className={styles.productGrid}>
                 {filteredProducts.length > 0 ? (
                     filteredProducts.map(product => (
-                        <div className={styles.productCard} key={product.id}>
+                        <div 
+                            className={styles.productCard} 
+                            key={product.id}
+                            onClick={() => handleProductClick(product.id)} 
+                        >
                             <img src={product.thumbnail} alt={product.title} className={styles.productImage} />
                             <h3>{product.title}</h3>
                             <p className={styles.price}>Precio: ${product.price}</p>

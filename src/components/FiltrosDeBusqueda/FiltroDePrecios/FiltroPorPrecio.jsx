@@ -1,21 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { fetchProductsByPrice } from '../../../services/productService.js'; 
+import './FiltroPorPrecio.css'; // Asegúrate de que tu archivo CSS esté vinculado correctamente
 
-const FiltroPorPrecio = ({ onPriceFilter }) => {
-  const handlePriceChange = (e) => {
-    const selectedPrice = e.target.value;
-    onPriceFilter(selectedPrice); // Llama a la función que manejará el filtrado
-  };
+const FiltroPorPrecio = () => {
+    const [maxPrice, setMaxPrice] = useState(100); 
+    const [products, setProducts] = useState([]);
 
-  return (
-    <div className="price-filter">
-      <select className="form-control" onChange={handlePriceChange}>
-        <option value="">Selecciona un rango de precio</option>
-        <option value="10">Menos de $10</option>
-        <option value="100">Menos de $100</option>
-        <option value="1000">Menos de $1000</option>
-      </select>
-    </div>
-  );
+    const handlePriceChange = (e) => {
+        setMaxPrice(e.target.value); 
+    };
+
+    const handleSearch = async () => {
+        try {
+            const filteredProducts = await fetchProductsByPrice(maxPrice);
+            setProducts(filteredProducts); 
+        } catch (error) {
+            console.error('Error fetching products:', error);
+        }
+    };
+
+    return (
+        <div>
+            <h2>Filtrar productos por precio deseado</h2>
+            <label>
+                Precio máximo:
+                <input 
+                    type="number" 
+                    value={maxPrice} 
+                    onChange={handlePriceChange} 
+                />
+            </label>
+            <button onClick={handleSearch}>Buscar</button>
+
+            <div>
+                <h3>Productos filtrados:</h3>
+                <ul>
+                    {products.map(product => (
+                        <li key={product.id}>
+                            {product.name} - ${product.price}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    );
 };
 
-export default FiltroPorPrecio;
+export default FiltroPorPrecio; 
