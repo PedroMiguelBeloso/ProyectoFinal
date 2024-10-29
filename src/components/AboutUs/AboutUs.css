@@ -1,0 +1,24 @@
+.about-us {
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 70px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.about-us h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.about-us p {
+    font-size: 1rem;
+    color: #666;
+    margin: 8px 0;
+    line-height: 1.6;
+}
