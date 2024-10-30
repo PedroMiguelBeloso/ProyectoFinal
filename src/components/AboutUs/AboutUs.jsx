@@ -1,9 +1,11 @@
 import React from 'react';
 import './AboutUs.css';
+import BackButton from '../BotonDeVolver';
 
 const AboutUs = () => {
     return (
         <div className="about-us">
+      <BackButton />
             <h1>PROYECTO FINAL</h1>
             <p><strong>Instituto:</strong> ORT</p>
             <p><strong>Profesor:</strong> Santiago Castro</p>

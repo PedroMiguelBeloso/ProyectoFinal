@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { fetchProductsByPrice } from '../../../services/productService.js'; 
 import './FiltroPorPrecio.css'; 
 
+
 const FiltroPorPrecio = () => {
     const [maxPrice, setMaxPrice] = useState(100); 
     const [products, setProducts] = useState([]);
@@ -21,6 +22,7 @@ const FiltroPorPrecio = () => {
 
     return (
         <div>
+            <ButtonBack/>
             <h2>Filter products by desired price</h2>
             <label>
                 Maximum price:

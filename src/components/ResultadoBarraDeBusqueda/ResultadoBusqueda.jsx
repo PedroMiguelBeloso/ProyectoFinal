@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import SearchBar from '../FiltrosDeBusqueda/BarraDeBusqueda/BarraDeBusqueda';
 import styles from './ResultadoBusqueda.module.css'; 
+import BackButton from '../BotonDeVolver';
 
 const SearchResults = ({ categories }) => {
     const { term } = useParams(); 
@@ -55,6 +56,7 @@ const SearchResults = ({ categories }) => {
 
     return (
         <div className={styles.searchResults}>
+            <BackButton />
             <SearchBar categories={categories} />
             <h2>Search results for "{term}"</h2>
             

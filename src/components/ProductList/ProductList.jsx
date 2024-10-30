@@ -45,6 +45,7 @@ const ProductList = () => {
 
     return (
         <div className="product-list">
+            
             <SearchBar />
             <div className="all-products-container">
                 <div className="carousel">

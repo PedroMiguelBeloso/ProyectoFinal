@@ -30,11 +30,17 @@ const ProductFilter = ({ selectedCategory, onFilter }) => {
     }, []); 
 
     return (
+        
+        
         <div className="product-filter">
             {loading ? ( 
+               
                 <p>Loading categories...</p>
+                
             ) : (
+                
                 <select 
+                    
                     className="custom-select" 
                     value={selectedCategory} 
                     onChange={handleCategoryChange}

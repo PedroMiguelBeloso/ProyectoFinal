@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'; 
 import { fetchProductById } from '../../services/productService.js'; 
 import  './Detalle.css';
+import BackButton from '../BotonDeVolver';
 
 const ProductDetail = () => {
     const { id } = useParams(); 
@@ -25,7 +26,9 @@ const ProductDetail = () => {
     }
 
     return (
+        
         <div className="product-detail-container">
+            <BackButton/>
             <h2>{product.title}</h2>
             <img src={product.thumbnail} alt={product.title} />
             <p>{product.description}</p>

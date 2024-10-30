@@ -4,6 +4,12 @@ import ProductFilter from '../FiltroDeCategoria/Filtro.jsx';
 import FiltroPorPrecio from '../FiltroDePrecios/FiltroPorPrecio.jsx';
 import './BarraDeBusqueda.css';
 
+
+
+
+
+
+
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -31,6 +37,7 @@ const SearchBar = () => {
 
   return (
     <div className="search-bar-container">
+       
       <input
         type="text"
         className="search-input"

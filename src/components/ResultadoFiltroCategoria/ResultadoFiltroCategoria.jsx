@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { fetchProductByCategory } from '../../services/productService';
 import styles from './ResultadoBusqueda.module.css'; 
 import SearchBar from '../FiltrosDeBusqueda/BarraDeBusqueda/BarraDeBusqueda.jsx'; 
+import BackButton from '../BotonDeVolver';
 
 const CategoryProducts = () => {
     const { category } = useParams(); 
@@ -54,6 +55,7 @@ const CategoryProducts = () => {
     return (
         <div className={styles.categoryProducts}>
             <h2>Products in category: {category}</h2>
+            <BackButton/>
             
             <SearchBar />
 

@@ -19,13 +19,22 @@ const Navbar = () => {
                     <span className={`bar ${isOpen ? 'open' : ''}`}></span>
                 </div>
                 <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
-                    <NavLink to="/" exact className="nav-link" activeClassName="active">
+                    <NavLink 
+                        to="/" 
+                        className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+                    >
                         Home
                     </NavLink>
-                    <NavLink to="/about" className="nav-link" activeClassName="active">
+                    <NavLink 
+                        to="/about" 
+                        className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+                    >
                         About us
                     </NavLink>
-                    <NavLink to="/contact" className="nav-link" activeClassName="active">
+                    <NavLink 
+                        to="/contact" 
+                        className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+                    >
                         Contact
                     </NavLink>
                 </div>
