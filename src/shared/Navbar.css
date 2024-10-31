@@ -36,7 +36,7 @@
 .nav-link {
     color: #ecf0f1!important; /* Texto claro */
     text-decoration: none; /* Sin subrayado */
-    font-size: 1rem;
+    font-size: 1.3rem !important;
     transition: color 0.3s ease;
     padding: 8px 12px;
     border-radius: 5px;
@@ -45,6 +45,26 @@
 .nav-link:hover {
     background-color: #3498db; /* Fondo azul claro al pasar el mouse */
     color: #ffffff; /* Texto blanco al pasar el mouse */
+}
+
+.cartIcon{
+    height: 30px;
+    width: 30px;
+    color: white;
+    display: inline-block; 
+}
+
+.cartZone{
+    background-color: white;
+    border-radius: 40px;
+    width: 40px;
+    height: 35px;
+    text-align: center;
+}
+
+.cartZone:hover {
+    cursor: pointer;
+    background-color: #3498db
 }
 
 @media (max-width: 768px) {

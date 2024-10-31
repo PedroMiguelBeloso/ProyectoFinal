@@ -31,6 +31,7 @@ const ProductDetail = () => {
             <p>{product.description}</p>
             <p className="price">Price: ${product.price}</p>
             <p className="rating">Rating: {product.rating}</p>
+            <button className="button"> Add to cart </button>
         </div>
     );
     
