@@ -8,6 +8,7 @@ import ProductDetail from './components/ResultadoDetalleDelProducto/Detalle.jsx'
 import Footer from './shared/Footer/footer.jsx'; 
 import './App.css';
 import CartContextProvider from './context/cartContext';
+import CartList from './components/Cart/CartList.jsx';
 
 function App() {
     return (
@@ -29,6 +30,8 @@ function App() {
 
                                 {/* Ruta para los detalles de un producto */}
                                 <Route path="/product/:id" element={<ProductDetail />} />
+
+                                <Route path='/cart' element={<CartList/>} />
                             </Routes>
                         </div>
                     </div>

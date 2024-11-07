@@ -22,7 +22,8 @@ const Navbar = () => {
           <a href="#contact" className="nav-link">
             Contact
           </a>
-          <div className="cartZone"><img src={cartIcon} alt="" className="cartIcon" /></div>
+          <Link to="/cart"> <div className="cartZone"><img src={cartIcon} alt="" className="cartIcon" /></div> </Link>
+          
         </div>
       </div>
     </nav>

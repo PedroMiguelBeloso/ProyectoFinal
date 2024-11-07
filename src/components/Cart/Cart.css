@@ -1,0 +1,41 @@
+.infoImage{
+    width: 110px;
+    height: 110px;
+}
+
+.infoPrice{
+    font-size: 20px;
+}
+
+.infoName{
+    font-size: 20px;
+
+}
+
+.infoQuantity{
+    font-size: 20px;
+
+
+}
+
+.buttonDelete {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.buttonDelete:hover{
+    color: red;
+}
+
+.buttonDelete{
+    cursor: pointer;
+}
+
+.infoTotalProduct{
+    font-size: 20px;
+}
+
+.flexboxProperties{
+    display: flex;
+    flex-direction: row;
+}

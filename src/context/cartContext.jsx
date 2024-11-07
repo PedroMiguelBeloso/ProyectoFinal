@@ -15,6 +15,7 @@ const CartContextProvider = ({ children }) => {
     const addItem = (item) => {
         if (!isInCart(item.id) && item.quantityToAdd > 0) {
             setCart((prevCart) => [...prevCart, item]);
+
         } else {
             console.log("Articulo previamente agregado o la cantidad seleccionada fue 0");
         }
@@ -53,6 +54,8 @@ const CartContextProvider = ({ children }) => {
         calcTotal();
         // Guardar el carrito en localStorage cada vez que cambia
         localStorage.setItem("cart", JSON.stringify(cart));
+        console.log(JSON.parse(localStorage.getItem("cart")));
+
     }, [cart]);
 
     return (
