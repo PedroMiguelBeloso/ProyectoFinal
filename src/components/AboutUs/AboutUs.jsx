@@ -1,6 +1,6 @@
 import React from 'react';
 import './AboutUs.css';
-import BackButton from '../BotonDeVolver';
+import BackButton from '../BackButton/BotonDeVolver';
 
 const AboutUs = () => {
     return (

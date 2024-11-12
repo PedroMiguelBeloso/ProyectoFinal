@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchProductById } from "../../services/productService.js";
 import "./Detalle.css";
 import { CartContext } from "../../context/cartContext";
-import BackButton from '../BotonDeVolver';
+import BackButton from '../BackButton/BotonDeVolver.jsx';
 
 
 
@@ -15,7 +15,7 @@ const ProductDetail = () => {
   
   const onAdd = () => {
     if (product) {
-      addItem({ ...product, quantityToAdd: 1 }); // Agrega el producto con una cantidad inicial
+      addItem({ ...product, quantityToAdd: 1 });  
     }
   };
 

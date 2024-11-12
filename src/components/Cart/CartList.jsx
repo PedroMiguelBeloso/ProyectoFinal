@@ -6,7 +6,7 @@ import { CartContext } from "../../context/cartContext";
 
 export default function CartList() {
 
-    const { cart, cartQuantity, priceTotal } = useContext(CartContext)
+    const { cart, cartQuantity, priceTotal,clear } = useContext(CartContext)
 
     return (
 
@@ -15,8 +15,8 @@ export default function CartList() {
                 cartQuantity === 0
                     ? <>
                         <div className="flexboxNotFound">
-                            <h2 className="notFound">No se encuentran items en el carrito</h2>
-                            <Link to="/" ><button className="notFoundLink"> Volver al listado </button></Link>
+                            <h2 className="notFound">Items not found</h2>
+                            <Link to="/" ><button className="notFoundLink"> Back to list </button></Link>
                         </div>
                     </>
                     : <>
@@ -51,9 +51,7 @@ export default function CartList() {
                                 </tr>
                             </tfoot>
                         </table>
-
-
-                        <Link> <button className="buttonProceed"> Proceder a checkout </button> </Link>
+                        <Link> <button className="buttonProceed"onClick={clear}> Finish purchase </button> </Link>
                     </>
             }
         </div>

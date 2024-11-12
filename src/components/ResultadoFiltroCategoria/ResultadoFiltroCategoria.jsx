@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { fetchProductByCategory } from '../../services/productService';
 import styles from './ResultadoBusqueda.module.css'; 
 import SearchBar from '../FiltrosDeBusqueda/BarraDeBusqueda/BarraDeBusqueda.jsx'; 
-import BackButton from '../BotonDeVolver';
+import BackButton from '../BackButton/BotonDeVolver.jsx';
 
 const CategoryProducts = () => {
     const { category } = useParams(); 

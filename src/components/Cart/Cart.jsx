@@ -10,10 +10,6 @@ export default function Cart({ id, nombre, precio, imagen, cantidad }) {
     const handleEliminar = () => {
         removeItem(id);
     }
-    console.log(typeof (cantidad)
-    )
-    console.log(typeof (precio)
-    )
     return (
         <>
             <tr>

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import SearchBar from '../FiltrosDeBusqueda/BarraDeBusqueda/BarraDeBusqueda';
 import styles from './ResultadoBusqueda.module.css'; 
-import BackButton from '../BotonDeVolver';
+import BackButton from '../BackButton/BotonDeVolver';
 
 const SearchResults = ({ categories }) => {
     const { term } = useParams(); 
