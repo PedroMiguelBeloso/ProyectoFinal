@@ -36,7 +36,7 @@
 .nav-link {
     color: #ecf0f1 !important;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.3rem;
     transition: color 0.3s ease;
     padding: 8px 12px;
     border-radius: 5px;
@@ -71,6 +71,26 @@
 
 .bar.open:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.cartIcon{
+    height: 30px;
+    width: 30px;
+    color: white;
+    display: inline-block; 
+}
+
+.cartZone{
+    background-color: white;
+    border-radius: 40px;
+    width: 40px;
+    height: 35px;
+    text-align: center;
+}
+
+.cartZone:hover {
+    cursor: pointer;
+    background-color: #3498db
 }
 
 @media (max-width: 768px) {

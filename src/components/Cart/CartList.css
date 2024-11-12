@@ -1,0 +1,84 @@
+.flexboxCL{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20rem;
+    padding-top: 30px;
+}
+
+
+.flexboxNotFound {
+    width: 45%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 2rem dashed rgb(88, 19, 40);
+}
+
+.notFoundLink {
+    font-size: 26px;
+    width: 280px;
+    padding: 12px;
+    border: rgb(38, 38, 38) solid 2px;
+    background-color: rgb(88, 19, 40);
+    color: white;
+    border-radius: 3rem;
+    margin-bottom: 30px;
+}
+
+.notFound {
+    font-size: 30px;
+    margin: 30px;
+}
+
+.flexboxItems {
+    display: flex;
+    flex-direction: row;
+
+}
+
+table {
+    font-size: 20px;
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: dashed 2px rgb(38, 38, 38);
+    border-radius: 10px;
+}
+
+th {
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+    background-color: rgb(0, 43, 83);
+    text-align: center !important;
+}
+
+td {
+    font-size: 30px;
+    border-top: dashed 2px rgb(38, 38, 38) !important;
+    padding: 20px;
+    text-align: center;
+}
+
+tfoot {
+    background-color: rgb(0, 43, 83);
+    color: white;
+}
+
+.buttonProceed{
+    font-size: 30px;
+    width: 330px;
+    padding: 20px;
+    border: rgb(38, 38, 38) solid 2px;
+    background-color: rgb(3, 96, 172);
+    color: white;
+    border-radius: 30px;
+    margin-top: 50px;
+}
