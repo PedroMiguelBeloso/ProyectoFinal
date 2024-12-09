@@ -24,7 +24,7 @@
 
 .carousel-track {
     display: flex;
-    animation: scroll 30s linear infinite; /*Velocidad de carrusel. a menor numero mas rapido.*/
+    animation: scroll 30s linear infinite; 
 }
 
 @keyframes scroll {
